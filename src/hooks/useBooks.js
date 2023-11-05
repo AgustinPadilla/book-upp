@@ -1,17 +1,12 @@
-import { useState } from 'react'
-// import { items } from '../mock/books.json'
+import { useContext } from 'react'
+import { BookContext } from '../context/books'
 
 export function useBooks () {
-  const [books, setBooks] = useState([])
+  const context = useContext(BookContext)
 
-  const getBooks = (search) => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
-      .then(response => response.json())
-      .then(data => {
-        const { items } = data
-        setBooks(items)
-      })
+  if (context === null) {
+    throw new Error('useBooks must be used whitin a BooksProvider')
   }
 
-  return [books, getBooks]
+  return context
 }
