@@ -1,6 +1,6 @@
 import React from 'react'
 import { useReadList } from '../hooks/useReadList'
-import { Thumbnail } from './thumbnail'
+import { Thumbnail } from './Thumbnail'
 import { Button } from './Button'
 
 export const BookCard = ({ book }) => {
@@ -13,7 +13,7 @@ export const BookCard = ({ book }) => {
   return (
     <div className='flex items-center gap-2 rounded-md p-2'>
       <picture className=''>
-        <Thumbnail book={book} className='w-40 h-auto object-contain shadow-md shadow-gray-700' />
+        <Thumbnail book={book} className='w-full md:w-40 h-auto object-contain shadow-md shadow-gray-700' />
       </picture>
       <div className='w-4/5 h-full flex flex-col justify-between'>
         <h3 className='font-bold text-xl mb-2 line-clamp-2 drop-shadow-md'>{book.volumeInfo.title}</h3>
