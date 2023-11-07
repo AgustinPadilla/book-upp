@@ -7,6 +7,7 @@ export const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([])
 
   const getBooks = async (search) => {
+    if (search === '') return
     searchBooks(search).then(response => {
       setBooks(response)
     })

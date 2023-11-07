@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        darkblue: '#113946',
+        darkbeige: '#BCA37F',
+        beige: '#EAD7BB',
+        lightbeige: '#FAF0E4'
+      }
     }
   },
   plugins: [

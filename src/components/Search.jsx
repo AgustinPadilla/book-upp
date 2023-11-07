@@ -17,8 +17,8 @@ export const Search = () => {
   }
   return (
     <form onSubmit={handleSubmit} className='h-11 flex items-center mb-3'>
-      <input type='text' value={search} onChange={handleChange} placeholder='Search' className='p-3 h-full shadow-lg text-black' />
-      <button className='p-3 bg-cyan-600 hover:bg-cyan-500 shadow-lg h-full'>
+      <input type='text' value={search} onChange={handleChange} placeholder='Search' className='p-3 h-full shadow-lg text-black rounded-s-full px-5' />
+      <button className='p-3 bg-darkbeige hover:bg-beige shadow-lg h-full pr-4 rounded-e-full'>
         <IconSearch />
       </button>
     </form>
