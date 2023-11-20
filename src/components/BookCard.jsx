@@ -2,14 +2,17 @@ import React from 'react'
 import { useReadList } from '../hooks/useReadList'
 import { Thumbnail } from './Thumbnail'
 import { Button } from './Button'
+import { useDetails } from '../hooks/useDetails'
 
 export const BookCard = ({ book }) => {
   const { addBookToList } = useReadList()
-
+  const { openDetails } = useDetails()
   const handleAddClick = () => {
     addBookToList(book)
   }
-
+  const handleDetailsClick = () => {
+    openDetails(book)
+  }
   return (
     <div className='flex items-center gap-2 rounded-md p-2'>
       <picture className=''>
@@ -23,7 +26,7 @@ export const BookCard = ({ book }) => {
         </div>
         <div className='flex items-center m-5 justify-around gap-1'>
           <Button onClick={handleAddClick} className='p-3 px-5 bg-darkbeige hover:bg-beige shadow-lg rounded-full '>Add</Button>
-          <Button className='p-3 bg-darkbeige hover:bg-beige shadow-lg rounded-full'>Details</Button>
+          <Button onClick={handleDetailsClick} className='p-3 bg-darkbeige hover:bg-beige shadow-lg rounded-full'>Details</Button>
         </div>
       </div>
     </div>

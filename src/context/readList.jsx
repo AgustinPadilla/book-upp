@@ -1,9 +1,13 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 export const ReadListContext = createContext()
 
 export const ReadListProvider = ({ children }) => {
-  const [readList, setReadList] = useState([])
+  const [readList, setReadList] = useState(JSON.parse(localStorage.getItem('readList')))
+
+  useEffect(() => {
+    localStorage.setItem('readList', JSON.stringify(readList))
+  }, [readList])
 
   const addBookToList = (book) => {
     if (!isInReadList(book)) {
