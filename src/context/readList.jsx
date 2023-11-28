@@ -3,7 +3,8 @@ import { createContext, useEffect, useState } from 'react'
 export const ReadListContext = createContext()
 
 export const ReadListProvider = ({ children }) => {
-  const [readList, setReadList] = useState(JSON.parse(localStorage.getItem('readList')))
+  const initialState = localStorage.getItem('readList') ? JSON.parse(localStorage.getItem('readList')) : []
+  const [readList, setReadList] = useState(initialState)
 
   useEffect(() => {
     localStorage.setItem('readList', JSON.stringify(readList))
